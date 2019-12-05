@@ -1,6 +1,6 @@
 # Good 'ol Group 4
 #The Optimistic 5??? (For a Group Name)
-#program that sends reminders of whne a task needs to be completed and has motivational messages sent twice a day. 
+#program that sends reminders of when a task needs to be completed and has motivational messages sent twice a day. 
 #no I think the effort put into the name Good 'ol Group 4 is too great - Garrett 
 
 #start of program...code
@@ -23,7 +23,6 @@ print("Welcome to M & R = Motivation & Reminders! Here you will be able to get f
 tday=datetime.date.today()
 
 print(tday,"\n")
-
 
 #lines 20-35 are identifiying weekdays and printing out messages depending on the day.
 #weekday=day of week and tday=current day of the week the program is ran on
