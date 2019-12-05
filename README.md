@@ -24,6 +24,7 @@ tday=datetime.date.today()
 
 print(tday,"\n")
 
+
 #lines 20-35 are identifiying weekdays and printing out messages depending on the day.
 #weekday=day of week and tday=current day of the week the program is ran on
 # "==" means if something is equal to another variable 
@@ -76,3 +77,21 @@ def task1():
         print()
 #prints the task assigned for the day        
 task1()
+
+import schedule
+#imports the scheduling module 
+def email():
+    """ this will be the thing that sends out the email with the quote"""
+    print ("add the email portion here")
+    #email portion needs to contian task1 this way the schedule module knows to send out the email containing days tasks
+    
+schedule.every().day.at("08:00").do(email)
+schedule.every().day.at("08:00").do(task1)
+#every day at 8am it will send this to def email.
+#more can be added to do the task at other times
+
+while True:
+   S = schedule.run_pending()
+   if S==ord("*"):
+        break
+#while loop keeps schedule running unless the key "*" is entered then the program will shut off.
