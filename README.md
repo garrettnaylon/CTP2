@@ -1,4 +1,3 @@
-# Good 'ol Group 4
 #The Optimistic 5??? (For a Group Name)
 #program that sends reminders of when a task needs to be completed and has motivational messages sent twice a day. 
 #no I think the effort put into the name Good 'ol Group 4 is too great - Garrett 
@@ -6,6 +5,7 @@
 #start of program...code
 
 """
+Good 'ol Group Four
 Taviana Carr, Garrett Naylon, Hannah Connolly, Trenton Davis, and Griffin Ewers
 CRN:15310
 Section 003
