@@ -1,10 +1,10 @@
 # Good 'ol Group 4
 #The Optimistic 5??? (For a Group Name)
 #program that sends reminders of whne a task needs to be completed and has motivational messages sent twice a day. also maybe implement a weather module to let the user know about the weather before going to work.
+#no I think the effort put into the name Good 'ol Group 4 is too great - Garrett 
 
 #start of program...code
 
-# -*- coding: utf-8 -*-
 """
 Taviana Carr, Garrett Naylon, Hannah Connolly, Trenton Davis, and Griffin Ewers
 CRN:15310
