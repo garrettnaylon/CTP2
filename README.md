@@ -77,31 +77,15 @@ def task1():
 #prints the task assigned for the day        
 task1()
 
-import schedule
-#imports the scheduling module 
-def email():
-    """ this will be the thing that sends out the email with the quote"""
-    print ("add the email portion here")
-    #email portion needs to contian task1 this way the schedule module knows to send out the email containing days tasks
-    
-schedule.every().day.at("08:00").do(email)
-schedule.every().day.at("08:00").do(task1)
-#every day at 8am it will send this to def email.
-#more can be added to do the task at other times
-
-while True:
-   S = schedule.run_pending()
-   if S==ord("*"):
-        break
-#while loop keeps schedule running unless the key "*" is entered then the program will shut off.
-# lines 98-120 is Griffins code
-import smtlib
+import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
 email= 'notifacationprojectCTP@gmail.com'
+#who you should be getting the eamil from
 password= 'CTP42project$'
 send_to_email= 'gewers@kent.edu'
+#sends email to this adress- can change it.
 subject= 'notifacation application'
 message= 'test' 
 
@@ -110,11 +94,31 @@ msg ['from']=email
 msg ['To']=send_to_email
 msg['subject']= subject
 
-msg.attach(MIMEText(mesage,'plain'))
+def attach(): 
+    msg.attach(MIMEText(reminder,task1,'plain'))
 
 server= smtplib.SMTP('smtp.gmail.com',587)
 server.starttls()
 server.login(email,password)
 text=msg.as_string()
-server.sendmail(email,send_to_email,text)
+
+def send():
+    server.sendmail(email,send_to_email,text)
+
 server.quit()
+
+import schedule
+import time
+"""NOTE: schedule and schedule.py are different. schedule.py will override the scheudle module and cuse an error that says "module 'schedule' has no attribute 'every'" even though it does. make sure schedule.py isn't overriding. Thats how I got it to work.It was a big headache."""
+#imports the scheduling module 
+
+schedule.every().day.at("08:00").do(attach)
+schedule.every().day.at("08:00").do(send)
+#every day at 8am it will attach the days tasks and reminders to the email and then send them
+
+while True:
+   S = schedule.run_pending()
+   time.sleep(1)
+   if S==ord("*"):
+        break
+#by entering the * key it cancels the program. also i put in a time for it to rest. although this can be taken out :)
