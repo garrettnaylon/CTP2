@@ -9,7 +9,7 @@ Good 'ol Group Four
 Taviana Carr, Garrett Naylon, Hannah Connolly, Trenton Davis, and Griffin Ewers
 CRN:15310
 Section 003
-Due: November 30th, 2019 at 5:59 a.m. (lets get done fast :))
+Due: December 7th, 2019
 """
 #doc string, just states project and my name
 print(__doc__)
@@ -94,3 +94,27 @@ while True:
    if S==ord("*"):
         break
 #while loop keeps schedule running unless the key "*" is entered then the program will shut off.
+# lines 98-120 is Griffins code
+import smtlib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+
+email= 'notifacationprojectCTP@gmail.com'
+password= 'CTP42project$'
+send_to_email= 'gewers@kent.edu'
+subject= 'notifacation application'
+message= 'test' 
+
+msg=MIMEMultipart()
+msg ['from']=email 
+msg ['To']=send_to_email
+msg['subject']= subject
+
+msg.attach(MIMEText(mesage,'plain'))
+
+server= smtplib.SMTP('smtp.gmail.com',587)
+server.starttls()
+server.login(email,password)
+text=msg.as_string()
+server.sendmail(email,send_to_email,text)
+server.quit()
