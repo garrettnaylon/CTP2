@@ -116,6 +116,7 @@ schedule.every().day.at("08:00").do(attach)
 schedule.every().day.at("08:00").do(send)
 #every day at 8am it will attach the days tasks and reminders to the email and then send them
 
+#while loop keeps program running
 while True:
    S = schedule.run_pending()
    time.sleep(1)
